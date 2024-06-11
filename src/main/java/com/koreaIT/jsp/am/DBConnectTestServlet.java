@@ -26,8 +26,11 @@ public class DBConnectTestServlet extends HttpServlet {
 		Connection connection = null;
 
 		try {
+			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection(URL, USER, PASSWORD);
 
+			System.out.println("성공!");
+			
 			response.getWriter().append("성공");
 			
 		} catch (SQLException e) {
