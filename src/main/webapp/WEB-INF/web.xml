@@ -19,4 +19,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>DBConnectTestServlet</display-name>
+    <servlet-name>DBConnectTestServlet</servlet-name>
+    <servlet-class>com.koreaIT.jsp.am.DBConnectTestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DBConnectTestServlet</servlet-name>
+    <url-pattern>/DBConnectTestServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
