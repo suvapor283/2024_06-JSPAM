@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Map;
 
 import com.koreaIT.jsp.am.util.DBUtil;
 import com.koreaIT.jsp.am.util.SecSql;
@@ -15,12 +14,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/article/detail")
-public class ArticleDetailServlet extends HttpServlet {
+@WebServlet("/article/delete")
+public class ArticleDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		response.setContentType("text/html; charset=UTF-8;");
+		
 		final String URL = "jdbc:mysql://localhost:3306/jsp_am?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul&useOldAliasMetadataBehavior=true&zeroDateTimeNehavior=convertToNull";
 		final String USER = "root";
 		final String PASSWORD = "";
@@ -32,17 +33,14 @@ public class ArticleDetailServlet extends HttpServlet {
 			connection = DriverManager.getConnection(URL, USER, PASSWORD);
 			
 			int id = Integer.parseInt(request.getParameter("id"));
-
+			
 			SecSql sql = new SecSql();
-			sql.append("SELECT * FROM article");
+			sql.append("DELETE FROM article");
 			sql.append("WHERE id = ?", id);
-
-			Map<String, Object> articleMap = DBUtil.selectRow(connection, sql);
-
-			request.setAttribute("articleMap", articleMap);
-
-			request.getRequestDispatcher("/jsp/article/detail.jsp").forward(request, response);
-
+			
+			DBUtil.delete(connection, sql);
+			
+			response.getWriter().append(String.format("<script>alert('%d번 글이 삭제되었습니다'); location.replace('list');</script>", id));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (Exception e) {

@@ -14,16 +14,19 @@
 <title>게시물 리스트</title>
 </head>
 <body>
-	<h1>article list</h1>
+	<div>
+		<div><a href="<%= request.getContextPath() %>/home/main">메인</a></div>
+	</div>
+	
 	<ul>
 		<% 
-		for (Map<String, Object> articleMap : articleListMap) { 
+		for (Map<String, Object> articleMap : articleListMap) {
 		%>
-		
-			<li> <%= articleMap.get("id") %> | <%= articleMap.get("updateDate") %> | <a href="detail?id=<%= articleMap.get("id") %>"> <%= articleMap.get("title") %> </a></li>
+			<li><%= articleMap.get("id") %> | <%= articleMap.get("updateDate") %> | <a href="detail?id=<%= articleMap.get("id") %>"><%= articleMap.get("title") %></a></li>
 		<%
-		} 
+		}
 		%>
 	</ul>
+	
 </body>
 </html>
