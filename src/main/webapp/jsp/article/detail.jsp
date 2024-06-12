@@ -9,9 +9,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시물 상세보기</title>
+<title>Article Detail</title>
 </head>
 <body>
+	<h1>Article Detail</h1>
 	<div>
 		<div><a href="<%= request.getContextPath() %>/home/main">메인</a></div>
 	</div>

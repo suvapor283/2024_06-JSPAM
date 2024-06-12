@@ -11,22 +11,36 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시물 리스트</title>
+<title>Article List</title>
 </head>
 <body>
+	<h1>Article List</h1>
 	<div>
 		<div><a href="<%= request.getContextPath() %>/home/main">메인</a></div>
 	</div>
 	
-	<ul>
+	<table border="1" width="500" cellpadding="10">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>수정일</th>
+				<th>제목</th>
+			</tr>
+		</thead>
+		<tbody>
 		<% 
-		for (Map<String, Object> articleMap : articleListMap) {
+		for (Map<String, Object> articleMap : articleListMap) { 
 		%>
-			<li><%= articleMap.get("id") %> | <%= articleMap.get("updateDate") %> | <a href="detail?id=<%= articleMap.get("id") %>"><%= articleMap.get("title") %></a></li>
+			<tr>
+				<td><%= articleMap.get("id") %></td>
+				<td><%= articleMap.get("updateDate") %></td>
+				<td><a href="detail?id=<%= articleMap.get("id") %>"> <%= articleMap.get("title") %> </a></td>
+			
+			</tr>
 		<%
-		}
+		} 
 		%>
-	</ul>
-	
+		</tbody>
+	</table>
 </body>
 </html>
