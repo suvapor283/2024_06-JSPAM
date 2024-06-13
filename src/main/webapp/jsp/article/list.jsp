@@ -21,29 +21,33 @@
 	<div>
 		<div><a href="<%= request.getContextPath() %>/home/main">메인</a></div>
 	</div>
-
-	<table border="1" width="500" cellpadding="10">
-		<thead>
-			<tr>
-				<th>번호</th>
-				<th>수정일</th>
-				<th>제목</th>
-			</tr>
-		</thead>
-		<tbody>
+	
+	<div>
+		<a href="write">글쓰기</a>
+	</div>
+	
+	<table border=1>
+		<colgroup>
+			<col />
+			<col width="200"/>
+			<col />
+		</colgroup>
+		<tr>
+			<th>번호</th>
+			<th>작성일</th>
+			<th>제목</th>
+		</tr>
 		<% 
-		for (Map<String, Object> articleMap : articleListMap) { 
+		for (Map<String, Object> articleMap : articleListMap) {
 		%>
 			<tr>
 				<td><%= articleMap.get("id") %></td>
 				<td><%= articleMap.get("updateDate") %></td>
-				<td><a href="detail?id=<%= articleMap.get("id") %>"> <%= articleMap.get("title") %> </a></td>
-			
+				<td><a href="detail?id=<%= articleMap.get("id") %>"><%= articleMap.get("title") %></a></td>
 			</tr>
 		<%
-		} 
+		}
 		%>
-		</tbody>
 	</table>
 	
 	<style type="text/css">
@@ -61,11 +65,12 @@
 			<a href="?page=<%= from - 1 %>">◀</a>
 		<%
 		}
+		%>
+		<%
 		if (end > totalPageCnt) {
 			end = totalPageCnt;
 		}
 		%>
-		
 		<% 
 		for (int i = from; i <= end; i++) {
 		%>
@@ -73,7 +78,6 @@
 		<%
 		}
 		%>
-		
 		<%
 		if (end != totalPageCnt) {
 		%>

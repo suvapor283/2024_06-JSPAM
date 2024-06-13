@@ -3,20 +3,20 @@
     pageEncoding="UTF-8"%>
     
 <%
-	Map<String, Object> articleMap = (Map<String, Object>)request.getAttribute("articleMap");
+	Map<String, Object> articleMap = (Map<String, Object>) request.getAttribute("articleMap");
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Article Detail</title>
+<title>게시물 상세보기</title>
 </head>
 <body>
-	<h1>Article Detail</h1>
 	<div>
 		<div><a href="<%= request.getContextPath() %>/home/main">메인</a></div>
 	</div>
-	
+
 	<div>
 		<h2><%= articleMap.get("id") %>번 게시물 상세보기</h2>
 		<div>작성일 : <%= articleMap.get("regDate") %></div>
@@ -27,8 +27,9 @@
 	
 	<div>
 		<div><a href="list">목록</a></div>
-		<div><a href="delete?id=<%= articleMap.get("id") %>">삭제</a></div>
+		<div><a href="modify?id=<%= articleMap.get("id") %>">수정</a></div>
+		<div><a href="delete?id=<%= articleMap.get("id") %>" onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;">삭제</a></div>
 	</div>
-
+	
 </body>
 </html>

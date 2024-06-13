@@ -15,8 +15,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/article/detail")
-public class ArticleDetailServlet extends HttpServlet {
+@WebServlet("/article/modify")
+public class ArticleModifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,7 +40,6 @@ public class ArticleDetailServlet extends HttpServlet {
 			
 			request.setAttribute("articleMap", articleMap);
 			
-			request.getRequestDispatcher("/jsp/article/detail.jsp").forward(request, response);
 			request.getRequestDispatcher("/jsp/article/modify.jsp").forward(request, response);
 		} catch (SQLException e) {
 			e.printStackTrace();

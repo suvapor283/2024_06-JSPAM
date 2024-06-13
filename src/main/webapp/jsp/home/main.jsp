@@ -4,14 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Main</title>
+<title>메인 페이지</title>
 </head>
 <body>
-	<h1>Main</h1>
+	<h2>메인 페이지</h2>
 	
 	<div>
 		<div><a href="../article/list">게시물 리스트</a></div>
 	</div>
-
 </body>
 </html>

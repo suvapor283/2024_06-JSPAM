@@ -42,7 +42,7 @@ public class ArticleListServlet extends HttpServlet {
 			int limitFrom = (cPage - 1) * itemsInAPage;
 			
 			int from = ((cPage - 1) / itemsInAPage) * 10 + 1;
-			int end = (((cPage - 1) / itemsInAPage) + 1) * 10;
+			int end =  (((cPage - 1) / itemsInAPage) + 1) * 10;
 			
 			SecSql sql = new SecSql();
 			sql.append("SELECT COUNT(id) FROM article");

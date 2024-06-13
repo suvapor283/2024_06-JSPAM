@@ -8,12 +8,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/home/main")
-public class HomeMainServlet extends HttpServlet {
+@WebServlet("/article/write")
+public class ArticleWriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/jsp/home/main.jsp").forward(request, response);
+		request.getRequestDispatcher("/jsp/article/write.jsp").forward(request, response);
 	}
-
 }
