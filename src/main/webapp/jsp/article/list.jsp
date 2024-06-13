@@ -74,8 +74,8 @@
 		}
 		%>
 		
-				<%
-		if (from != 1) {
+		<%
+		if (end != totalPageCnt) {
 		%>
 			<a href="?page=<%= end + 1 %>">▶</a>
 			<a href="?page=<%= totalPageCnt %>">&gt;&gt;</a>
