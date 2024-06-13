@@ -4,21 +4,22 @@
     pageEncoding="UTF-8"%>
     
 <%
-	List<Map<String, Object>> articleListMap = (List<Map<String, Object>>)request.getAttribute("articleListMap");
+	List<Map<String, Object>> articleListMap = (List<Map<String, Object>>) request.getAttribute("articleListMap");
+	int totalPageCnt = (int) request.getAttribute("totalPageCnt");
+	int cPage = (int) request.getAttribute("cPage");
 %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Article List</title>
+<title>게시물 리스트</title>
 </head>
 <body>
-	<h1>Article List</h1>
 	<div>
 		<div><a href="<%= request.getContextPath() %>/home/main">메인</a></div>
 	</div>
-	
+
 	<table border="1" width="500" cellpadding="10">
 		<thead>
 			<tr>
@@ -42,5 +43,22 @@
 		%>
 		</tbody>
 	</table>
+	
+	<style type="text/css">
+		.red {
+			color: red;
+			font-size: 1.5rem;
+		}
+	</style>
+	
+	<div>
+		<% 
+		for (int i = 1; i <= totalPageCnt; i++) {
+		%>
+			<a class="<%= cPage == i ? "red" : "" %>" href="?page=<%= i %>"><%= i %></a>
+		<%
+		}
+		%>
+	</div>
 </body>
 </html>
