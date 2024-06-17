@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,20 @@
 	
 	<div>
 		<div><a href="../article/list">게시물 리스트</a></div>
-		<div><a href="../member/join">회원가입</a></div>
+		<% 
+		if (request.getAttribute("session") == null){
+		%>
+			<div><a href="../member/join">회원가입</a></div>
+			<div><a href="../member/login">로그인</a></div>
+		<% 
+		} else {
+		%>
+			<div><a href="../member/logout">로그아웃</a></div>
+		<%	
+		}
+		%>
+		
+		
 	</div>
 </body>
 </html>
